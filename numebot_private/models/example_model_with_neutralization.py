@@ -5,21 +5,19 @@ from sklearn.preprocessing import MinMaxScaler
 from numebot.models.example_model import ExampleModel
 
 
+# Inherits from ExampleModel!
 class ExampleModelWithNeutralization(ExampleModel):
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        
-    def predict(self, numerai_data_set: pd.DataFrame, save_for_submission=False):
+    def predict(self, numerai_data_set: pd.DataFrame, to_be_saved_for_submission=False):
         print('\nPredicting from child class. First, running normal prediction ...')
         output = super().predict(numerai_data_set=numerai_data_set,
-                                 save_for_submission=False)
+                                 to_be_saved_for_submission=to_be_saved_for_submission)
         numerai_data_set['prediction'] = output
         print('Now, running feature neutralization ...')
 
         output = neutralize_from_forum(numerai_data_set, target='prediction')
         
-        if save_for_submission:
+        if to_be_saved_for_submission:
             self.save_for_submission(output)
 
         return output
