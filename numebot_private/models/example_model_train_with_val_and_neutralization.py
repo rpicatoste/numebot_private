@@ -1,12 +1,11 @@
 import pandas as pd
 
-from numebot.models.example_model import ExampleModel
-
 from numebot_private.data.feature_neutralization import neutralize_from_forum
+from numebot_private.models.example_model_train_with_val import ExampleModelTrainWithVal
 
 
 # Inherits from ExampleModel!
-class ExampleModelWithNeutralization(ExampleModel):
+class ExampleModelTrainWithValAndNeutralization(ExampleModelTrainWithVal):
 
     def predict(self, numerai_data_set: pd.DataFrame, to_be_saved_for_submission=False):
         print('\nPredicting from child class. First, running normal prediction ...')

@@ -1,6 +1,6 @@
 from numebot.models.example_model import ExampleModel
 
-from numebot_private.data.data_processing import DataManagerExtended
+from numebot_private.data.data_manager_extended import DataManagerExtended
 
 
 # Inherits from ExampleModel!
