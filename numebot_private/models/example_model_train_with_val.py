@@ -15,4 +15,6 @@ class ExampleModelTrainWithVal(ExampleModel):
         self.model.fit(data.train_val[feature_names], data.train_val['target'])
 
         self.save_model()
+        self.model_ready = True
+        
         print('Training finished!')

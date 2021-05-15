@@ -46,7 +46,7 @@ def _make_noisy_dataframe(df: pd.DataFrame, columns=None, n_times=1):
     new_df = pd.concat([df[columns]]*n_times)
     
     noise_shape = new_df.shape
-    noise = (np.random.rand(*noise_shape)-0.5)*0.25
+    noise = (np.random.rand(*noise_shape) - 0.5) * 0.25
 
     new_df = new_df + noise
 

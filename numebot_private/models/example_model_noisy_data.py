@@ -17,4 +17,6 @@ class ExampleModelNoisyData(ExampleModel):
         self.model.fit(with_noise[feature_names], with_noise['target'])
 
         self.save_model()
+        self.model_ready = True
+        
         print('Training finished!')
