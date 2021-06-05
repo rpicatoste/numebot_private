@@ -13,16 +13,24 @@ class DataManagerExtended(DataManager):
         super().__init__(file_names=file_names, nrows=nrows, save_memory=save_memory)
 
         self._train_val = None
+        self._all = None
 
     @property
     def train_val(self):
         """
-        Extended version of the training dataset, adding the validation data.
+        Extended version of the train dataset, adding the validation data.
         """
         if self._train_val is None:
-            self._train_val = pd.concat([self.training, self.val]).sort_values(by=NC.era)
+            self._train_val = pd.concat([self.train, self.val]).sort_values(by=NC.era)
 
         return self._train_val
+
+    @property
+    def all(self):
+        if self._all is None:
+            self._all = pd.concat([self.train, self.val, self.test]).sort_values(by=NC.era)
+
+        return self._all
 
     def noisy_tournament(self, n_times: int):
         feature_cols = [f for f in self.tournament.columns if f.startswith("feature")]
@@ -32,10 +40,10 @@ class DataManagerExtended(DataManager):
                                      n_times=n_times)
 
     def noisy_training(self, n_times: int):
-        feature_cols = [f for f in self.training.columns if f.startswith("feature")]
+        feature_cols = [f for f in self.train.columns if f.startswith("feature")]
         
-        return _make_noisy_dataframe(self.training, 
-                                     columns=feature_cols + [NC.target],
+        return _make_noisy_dataframe(self.train, 
+                                     columns=self.features + [NC.target],
                                      n_times=n_times)
 
 
