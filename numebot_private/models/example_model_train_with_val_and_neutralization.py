@@ -1,5 +1,7 @@
 import pandas as pd
 
+from numebot.data.data_manager import DataManager
+
 from numebot_private.data.feature_neutralization import neutralize_from_forum
 from numebot_private.models.example_model_train_with_val import ExampleModelTrainWithVal
 
@@ -7,9 +9,10 @@ from numebot_private.models.example_model_train_with_val import ExampleModelTrai
 # Inherits from ExampleModel!
 class ExampleModelTrainWithValAndNeutralization(ExampleModelTrainWithVal):
 
-    def predict(self, numerai_data_set: pd.DataFrame, to_be_saved_for_submission=False):
+    def predict(self, data: DataManager, to_be_saved_for_submission=False):
+        numerai_data_set = data.tournament
         print('\nPredicting from child class. First, running normal prediction ...')
-        output = super().predict(numerai_data_set=numerai_data_set,
+        output = super().predict(data=data,
                                  to_be_saved_for_submission=to_be_saved_for_submission)
         numerai_data_set['prediction'] = output
         print('Now, running feature neutralization ...')

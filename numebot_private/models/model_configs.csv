@@ -1,0 +1,33 @@
+numerai_name,model_code,parameters,description,stake
+rpica,numebot.models.example_model,,"Example model proposed by Numerai.
+",
+rpica_test_1,numebot_private.models.example_model_with_neutralization,,"Example model proposed by Numerai.
+Apply neutralization found in the forum.
+",
+rpica_test_2,numebot_private.models.example_model_train_with_val,,"Example model proposed by Numerai.
+Train using train_val data.
+",
+rpica_test_3,numebot_private.models.example_model_train_with_val_and_neutralization,,"Example model proposed by Numerai.
+Apply neutralization found in the forum.
+Train using train_val data.
+",
+rpica_test_4,numebot_private.models.example_with_test_data,,"Example model proposed by Numerai.
+Train using test data.
+",
+rpica_test_5,numebot_private.models.example_with_test_data_and_neutralization,,"Example model proposed by Numerai.
+Apply neutralization found in the forum.
+Train using test data.
+",
+rpica_1,numebot_private.models.example_with_test_data_and_tuning,,,
+rpica_2,numebot_private.models.example_model_noisy_data,,"Example model proposed by Numerai.
+Trained in 10x the training data with noise added.
+",
+rpica_3,numebot_private.models.auto_sklearn_model,"{‘train_data’: 'training', ‘time_left_for_this_task’:3*3600}",Auto-sklearn – Only training data – 3h,
+rpica_4,numebot_private.models.auto_sklearn_model,"{‘train_data’: 'train_val', ‘time_left_for_this_task’:13*3600}",Auto-sklearn – Train val data – 13h,
+rpica_5,numebot_private.models.auto_sklearn_model,"{‘train_data’: 'train_val', ‘time_left_for_this_task’:26*3600}",Auto-sklearn – Train val data – 26h,
+rpica_6,numebot_private.models.train_by_era_similarity,,"PCA – Take model from rpica_test_2 and train more on the closest eras.
+",10
+rpica_7,numebot_private.models.era_boosted,,Era Boosted from forum.,
+rpica_8,,,,
+rpica_9,,,,
+rpica_10,,,,

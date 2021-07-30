@@ -7,7 +7,7 @@ from numebot_private.data.data_manager_extended import DataManagerExtended
 class ExampleModelTrainWithVal(ExampleModel):
 
     def train_model(self, data: DataManagerExtended):
-        print('Original training set:  ', data.training.shape)
+        print('Original train set:  ', data.train.shape)
         print('Training and validation set:', data.train_val.shape)
 
         feature_names = [f for f in data.train_val.columns if f.startswith("feature")]
