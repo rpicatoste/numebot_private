@@ -24,7 +24,7 @@ class TrainByEraSimilarity(NumeraiModel):
 
     def __init__(
         self, config_row: pd.Series, file_names: FileNamesGetter, napi: NumerAPI,
-        data: DataManager, k_nearest=20,
+        k_nearest=20,
         testing: bool=False
     ):
 
